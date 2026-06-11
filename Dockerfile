@@ -13,9 +13,10 @@ FROM node:20-alpine AS builder
 
 WORKDIR /app
 
+
 # TODO: Usa el comando adecuado para instalar dependencias de forma reproducible.
 COPY package.json package-lock.json ./
-RUN npm install
+RUN npm ci 
 
 COPY . .
 RUN npm run build
@@ -26,15 +27,16 @@ FROM node:20-alpine AS runner
 WORKDIR /app
 
 # TODO: Configura el entorno de ejecución para producción.
-
+ENV NODE_ENV=production
 # TODO: Instala solo las dependencias necesarias para ejecutar la app (sin devDependencies).
 COPY package.json package-lock.json ./
 RUN npm ci
 
 # TODO: Copia los archivos compilados desde la etapa de build a esta imagen.
-
+COPY --from=builder /app/dist ./dist
+USER node
 # TODO: Corrige el comando de arranque para ejecutar el punto de entrada compilado de NestJS.
-CMD ["node", "main.js"]
+CMD ["node", "dist/main.js"]
 
 # Puerto por defecto
 EXPOSE 8080
