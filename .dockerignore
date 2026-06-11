@@ -8,5 +8,5 @@ dist
 coverage
 *.md
 test
-Dockerfile.TODO
+Dockerfile
 npm-debug.log

@@ -217,13 +217,13 @@ docker run --env-file .env -p 8080:8080 practica-backend
 
 ## Checklist antes de entregar
 
-- [ ] `DB_SYNCHRONIZE=false` en `.env` y en Render
-- [ ] `.env` NO está en el repositorio (solo `.env.example`)
-- [ ] `Dockerfile` funcional (sin `.TODO`)
+- [ x] `DB_SYNCHRONIZE=false` en `.env` y en Render
+- [ x] `.env` NO está en el repositorio (solo `.env.example`)
+- [ x] `Dockerfile` funcional (sin `.TODO`)
 - [ ] `POST /estudiante` requiere JWT + rol admin
 - [ ] `GET /estudiante` devuelve datos
-- [ ] Variables de entorno configuradas en Render
-- [ ] App accesible por URL pública
+- [x ] Variables de entorno configuradas en Render
+- [ x] App accesible por URL pública
 
 ---
 
